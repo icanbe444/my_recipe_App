@@ -27,8 +27,8 @@ $(document).ready(function() {
                 if (response.length > 0) {
                     var html = '';
                     for (var i = 0; i < response.length; i++) {
-                        var productId = response[i].r_id; // Get the product ID
-                        var productUrl = 'view_recipe.php?id=' + productId; // Create the product URL
+                        var productId = response[i].r_id; // Get the recipe ID
+                        var productUrl = 'view_recipe.php?id=' + productId; // Create the recipe URL
 
                         html += '<div class="product">' +
                             '<a href="' + productUrl + '">' +
@@ -60,7 +60,7 @@ $(document).ready(function() {
     </style>
 <script>
         $(document).ready(function() {
-            // Fetch products using AJAX
+            // Fetch recipes using AJAX
             $.ajax({
                 url: 'api/index.php?action=view_recipes',
                 method: 'GET',
@@ -70,7 +70,7 @@ $(document).ready(function() {
                     if (response.length > 0) {
                         var productList = $('#product-list');
 
-                        // Iterate over each product
+                        // Iterate over each recipe
                         $.each(response, function(index, product) {
                             var recipeBox = $('<div class="four recipe-box columns">');
                             var thumbnailHolder = $('<div class="thumbnail-holder">');
@@ -91,11 +91,11 @@ $(document).ready(function() {
                             productList.append(recipeBox);
                         });
                     } else {
-                        $('#product-list').html('<p>No products found</p>');
+                        $('#product-list').html('<p>No recipe found</p>');
                     }
                 },
                 error: function() {
-                    console.log('Error fetching products');
+                    console.log('Error fetching recipes');
                 }
             });
         });
