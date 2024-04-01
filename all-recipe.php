@@ -3,64 +3,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title><?php echo BLOG_NAME?></title>
+<title>All Recipe -<?php echo BLOG_NAME?></title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/colors/green.css" id="colors">
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script>
-$(document).ready(function() {
-    $('#searchForm').submit(function(event) {
-        event.preventDefault(); // Prevent form submission
 
-        var searchTerm = $('#searchTerm').val(); // Get the search term
-
-        // Perform Ajax request to searchProducts.php
-        $.ajax({
-            url: 'api/index.php?action=search_recipe',
-            type: 'POST',
-            data: { term: searchTerm },
-            dataType: 'json',
-            success: function(response) {
-                // Handle the response
-                if (response.length > 0) {
-                    var html = '';
-                    for (var i = 0; i < response.length; i++) {
-                        var productId = response[i].r_id; // Get the recipe ID
-                        var productUrl = 'view_recipe.php?id=' + productId; // Create the recipe URL
-
-                        html += '<div class="product">' +
-                            '<a href="' + productUrl + '">' +
-                            '<img src="' + response[i].image + '" alt="' + response[i].title + '" style="width:300px;">' +
-                             '<center><h2 style="font-size:15px;color:#ed9031;">' + response[i].title + '</h2></center>' +
-                            '</a>' +
-                            '</div>';
-                    }
-                    $('#searchResults').html(html);
-                } else {
-                    $('#searchResults').html('<p>No recipe found.</p>');
-                }
-            },
-            error: function() {
-                $('#searchResults').html('<p>Error occurred while searching.</p>');
-            }
-        });
-    });
-});
-    </script>
-    <style>
-        .product {
-            border: 1px solid darkred;
-            border-radius: 25px;
-            width:300px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
 <script>
         $(document).ready(function() {
-            // Fetch recipes using AJAX
+            // Fetch products using AJAX
             $.ajax({
                 url: 'api/index.php?action=view_recipes',
                 method: 'GET',
@@ -70,7 +23,7 @@ $(document).ready(function() {
                     if (response.length > 0) {
                         var productList = $('#product-list');
 
-                        // Iterate over each recipe
+                        // Iterate over each product
                         $.each(response, function(index, product) {
                             var recipeBox = $('<div class="four recipe-box columns">');
                             var thumbnailHolder = $('<div class="thumbnail-holder">');
@@ -91,80 +44,73 @@ $(document).ready(function() {
                             productList.append(recipeBox);
                         });
                     } else {
-                        $('#product-list').html('<p>No recipe found</p>');
+                        $('#product-list').html('<p>No products found</p>');
                     }
                 },
                 error: function() {
-                    console.log('Error fetching recipes');
+                    console.log('Error fetching products');
                 }
             });
         });
     </script>
 </head>
 
-<body class="boxed">
+<body>
 
 <!-- Wrapper -->
 <div id="wrapper">
-
 <?php require_once("inc/header.php");?>
 
 
-<div class="clearfix"></div>
-
-<div class="margin-top-45"></div>
-
-
-<!-- Content
+<!-- Titlebar
 ================================================== -->
+<section id="titlebar" class="browse-all">
+	<!-- Container -->
+	<div class="container">
+
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+
+<!-- Container -->
+
+
+<div class="margin-top-35"></div>
+
+
+<!-- Container -->
 <div class="container">
 
-	<!-- Masonry -->
-	<div class="twelve columns">
-<div class="widget search-form">
-		<nav class="search">
-			<form id="searchForm">
-				<button><i class="fa fa-search"></i></button>
-				<input class="search-field" id="searchTerm" type="text" placeholder="Search for recipes" value="">
-			</form>
-		</nav>
+	<!-- Headline -->
+	<div class="sixteen columns">
+ 		<h3 class="headline">All Recipes</h3>
+		<span class="line margin-bottom-35"></span>
 		<div class="clearfix"></div>
 	</div>
+	<div class="clearfix"></div>
+
+
 		<!-- Isotope -->
 		<div class="isotope">
-		    
-		    <div id="searchResults"></div>
-		    
-	    <h3 class="headline">Top Recipes</h3>
-	    <span class="line rb margin-bottom-35"></span>
-	    <div class="clearfix"></div>
-
-
 
 <div id="product-list"></div>
-			
-	
-
-
 
 		</div>
 		<div class="clearfix"></div>
 
-	</div>
-
-<div class="four columns">
-
-
-</div>
-
-<div class="margin-top-5"></div>
-
-</div>
 
 
 </div>
 
 
+</div>
+<!-- Wrapper / End -->
+
+
+
+<!-- Footer Bottom / Start -->
 <div id="footer-bottom">
 
 	<!-- Container -->
@@ -183,7 +129,8 @@ $(document).ready(function() {
 
 
 
-<!-- my Script -->
+<!-- Java Script
+================================================== -->
 <script src="scripts/jquery-1.11.0.min.js"></script>
 <script src="scripts/jquery-migrate-1.2.1.min.js"></script>
 <script src="scripts/jquery.superfish.js"></script>
@@ -197,6 +144,40 @@ $(document).ready(function() {
 <script src="scripts/jquery.pricefilter.js"></script>
 <script src="scripts/custom.js"></script>
 
+
+<!-- Style Switcher
+================================================== -->
+<script src="scripts/switcher.js"></script>
+
+<div id="style-switcher">
+	<h2>Style Switcher <a href="#"></a></h2>
+	
+	<div>
+		<h3>Predefined Colors</h3>
+		<ul class="colors" id="color1">
+			<li><a href="#" class="green" title="Green"></a></li>
+			<li><a href="#" class="blue" title="Blue"></a></li>
+			<li><a href="#" class="orange" title="Orange"></a></li>
+			<li><a href="#" class="navy" title="Navy"></a></li>
+			<li><a href="#" class="yellow" title="Yellow"></a></li>
+			<li><a href="#" class="peach" title="Peach"></a></li>
+			<li><a href="#" class="beige" title="Beige"></a></li>
+			<li><a href="#" class="purple" title="Purple"></a></li>
+			<li><a href="#" class="celadon" title="Celadon"></a></li>
+			<li><a href="#" class="pink" title="Pink"></a></li>
+			<li><a href="#" class="red" title="Red"></a></li>
+			<li><a href="#" class="brown" title="Brown"></a></li>
+			<li><a href="#" class="cherry" title="Cherry"></a></li>
+			<li><a href="#" class="cyan" title="Cyan"></a></li>
+			<li><a href="#" class="gray" title="Gray"></a></li>
+			<li><a href="#" class="darkcol" title="Dark"></a></li>
+		</ul>
+		
+	</div>
+	
+	<div id="reset"><a href="#" class="button color">Reset</a></div>
+		
+</div>
 
 
 </body>

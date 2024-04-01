@@ -1,0 +1,7 @@
+[25-Mar-2024 15:12:29 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/tpaiseve/public_html/recipe.tpais-events.com/inc/config.php on line 2
+[25-Mar-2024 15:13:17 UTC] PHP Notice:  Undefined index: store_name in /home/tpaiseve/public_html/recipe.tpais-events.com/add-recipe.php on line 34
+[25-Mar-2024 15:17:06 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/tpaiseve/public_html/recipe.tpais-events.com/inc/config.php on line 2
+[25-Mar-2024 15:17:16 UTC] PHP Notice:  Undefined index: store_name in /home/tpaiseve/public_html/recipe.tpais-events.com/add-recipe.php on line 34
+[25-Mar-2024 19:15:28 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/tpaiseve/public_html/recipe.tpais-events.com/inc/config.php on line 2
+[26-Mar-2024 00:33:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/tpaiseve/public_html/recipe.tpais-events.com/inc/config.php on line 2
+[26-Mar-2024 20:30:43 UTC] PHP Notice:  Undefined index: id in /home/tpaiseve/public_html/recipe.tpais-events.com/view_recipe.php on line 16
