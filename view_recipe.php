@@ -17,21 +17,21 @@
 
     <script>
         $(document).ready(function() {
-            var productId = <?php echo $repid?>; // Replace with the actual product ID
+            var productId = <?php echo $repid?>; // Replace with the actual recipe ID
 
-            // Fetch product details using AJAX
+            // Fetch recipe details using AJAX
             $.ajax({
                 url: 'api/index.php',
                 method: 'GET',
                 dataType: 'json',
                 data: { action: 'get_recipe', id: productId },
                  success: function(response) {
-            // Process the product details
+            // Process the recipe details
             if (response !== null) {
                 var productDetails = $('#product-details');
                 var productHtml = '';
 
-                // Generate HTML markup for the product details
+                // Generate HTML markup for the recipe details
                 productHtml += '<section class="recipe-header">';
                 productHtml += '<div class="title-alignment">';
                 productHtml += '<h2>' + response.title + '</h2>';
@@ -51,10 +51,10 @@
 
                 productHtml += '<p itemprop="description" style="margin-top:30px;">' + response.description + '</p>';
 
-                // Update the product details container
+                // Update the Recipe details container
                 productDetails.html(productHtml);
             } else {
-                productDetails.html('<p>Product not found</p>');
+                productDetails.html('<p>Recipe not found</p>');
             }
         },
         error: function() {
