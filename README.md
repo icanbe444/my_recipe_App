@@ -18,8 +18,6 @@ I need to build a recipe blog with two types of users. The first users type will
 12.	Get all recipe
 13.	Upload Images
 14.	Search Recipe
-15.	Like Recipe
-16.	Admin Dashboard
 
 3. A site map. 
 The site map shows a clear picture of the different sections of my recipe blog. This will allow users, both Chefs and Users to seamlessly navigate the different pages to perform all the functions available on the platform. 
@@ -48,14 +46,3 @@ a.	View all recipe
 b.	View all chefs
 c.	View all users
 d.	CRUD functions
-
- 
-
-
-
- 
-
-
- 
- 
- 
