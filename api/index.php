@@ -6,8 +6,8 @@ session_start();
 
 // Database configuration
 $host = 'localhost';
-$username = 'tpaiseve_recipe';
-$password = 'A@password123@!';
+$username = 'root';
+$password = 'root';
 $database = 'tpaiseve_recipe';
 
 // Create database connection
@@ -35,6 +35,9 @@ switch ($action) {
     case 'add_recipe':
         addRecipe();
         break;
+    case 'top_recipes':
+        topRecipes();
+        break;
     case 'edit_recipe':
         editRecipe();
          break;
@@ -46,6 +49,9 @@ switch ($action) {
         break;
     case 'search_recipe':
         searchRecipes();
+        break;
+    case 'like_recipe':
+        likeRecipe();
         break;
     default:
         echo json_encode(['error' => 'Invalid action']);
@@ -61,14 +67,15 @@ function createAccount()
     $store_name = $_POST['store_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = 'chef';
     $reg_date = date("Y-m-d H:i:s");
 
     // Encrypt the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare the SQL statement
-    $stmt = $mysqli->prepare("INSERT INTO chefs (fullname,store_name,email,password,reg_date) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $fullname,$store_name,$email,$password, $reg_date);
+    $stmt = $mysqli->prepare("INSERT INTO chefs (fullname,store_name,email,password,role,reg_date) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $fullname,$store_name,$email,$password,$role,$reg_date);
 
     // Execute the statement
     if ($stmt->execute()) {
@@ -183,7 +190,34 @@ function viewRecipes()
     global $mysqli;
 
     // Prepare the SQL statement
-    $stmt = $mysqli->prepare("SELECT * FROM recipes");
+    $stmt = $mysqli->prepare("SELECT * FROM recipes ORDER BY likes DESC LIMIT 20");
+
+    // Execute the statement
+    $stmt->execute();
+
+    // Get the result
+    $result = $stmt->get_result();
+
+    // Check if there are any products
+    if ($result->num_rows > 0) {
+        // Fetch all products as an associative array
+        $products = $result->fetch_all(MYSQLI_ASSOC);
+
+        // Return the products as JSON
+        echo json_encode($products);
+    } else {
+        echo json_encode([]);
+    }
+}
+
+//Top Recipe
+
+function topRecipes()
+{
+    global $mysqli;
+
+    // Prepare the SQL statement
+    $stmt = $mysqli->prepare("SELECT * FROM recipes WHERE likes >='1'");
 
     // Execute the statement
     $stmt->execute();
@@ -241,35 +275,64 @@ function getRecipe()
 
 function searchRecipes()
 {
-    $searchTerm = $_GET['term'];
+    $searchTerm = $_POST['term'];
     global $mysqli;
 
     // Prepare the SQL statement
-    $stmt = $mysqli->prepare("SELECT * FROM recipes WHERE title LIKE ?");
-    $searchTerm = '%' . $searchTerm . '';
-    $stmt->bind_param("s", $searchTerm);
+    $stmt = $mysqli->prepare("SELECT * FROM recipes WHERE title LIKE CONCAT('%', ?, '%') AND CHAR_LENGTH(title) >= 0.2 * CHAR_LENGTH(?)");
+    $stmt->bind_param("ss", $searchTerm, $searchTerm);
 
     // Execute the statement
-    $stmt->execute();
+    if ($stmt->execute()) {
+        // Get the result
+        $result = $stmt->get_result();
 
-    // Get the result
-    $result = $stmt->get_result();
+        // Check if there are any recipes
+        if ($result->num_rows > 0) {
+            // Fetch all recipes as an associative array
+            $products = $result->fetch_all(MYSQLI_ASSOC);
 
-    // Check if there are any recipes
-    if ($result->num_rows > 0) {
-        // Fetch all recipes as an associative array
-        $products = $result->fetch_all(MYSQLI_ASSOC);
+            // Return the recipes as JSON
+            echo json_encode($products);
+            return;
+        }
 
-        // Return the recipes as JSON
-        echo json_encode($products);
-    } else {
+        // No recipes found
         echo json_encode([]);
+    } else {
+        // Error occurred
+        echo "Error occurred while searching: " . $stmt->error;
     }
 
     // Close the statement
     $stmt->close();
 }
 
+//Like recipe
+function likeRecipe()
+{
+    $recipeId = $_POST['id'];
+    global $mysqli;
+
+    // Update the likes count in the database
+    $stmt = $mysqli->prepare("UPDATE recipes SET likes = likes + 1 WHERE r_id = ?");
+    $stmt->bind_param('i', $recipeId);
+    $stmt->execute();
+
+    // Return the updated likes count as response
+    $stmt = $mysqli->prepare("SELECT likes FROM recipes WHERE r_id = ?");
+    $stmt->bind_param('i', $recipeId);
+    $stmt->execute();
+    $stmt->bind_result($likes);
+    
+    if ($stmt->fetch()) {
+        echo json_encode(['likes' => $likes]);
+    } else {
+        echo json_encode(['likes' => null]);
+    }
+    
+    exit();
+}
 // Close the database connection
 $mysqli->close();
 ?>
