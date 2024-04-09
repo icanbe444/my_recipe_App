@@ -13,6 +13,6 @@ catch(PDOException $e){
 	echo $e->getMessage();
 }
 
-define('BLOG_NAME', 'ICANBEE');
-define('LOGO_URL', 'https://i.pinimg.com/736x/bd/f1/52/bdf1527f9b2a84affa3bf7dceffce3bd.jpg');
+define('BLOG_NAME', 'icanbe\'s blog');
+define('LOGO_URL', 'images/site_logo.jpg');
 ?>
