@@ -1,6 +1,12 @@
 Part 1: Specification of your web application: (2 grades) (~300 words) Create a short report containing a brief on the following: 
 Description of your application. 
-I need to build a recipe blog with two types of users. The first users type will be the Chef (Recipe makers) and they will have an admin access. The chefs can perform CRUD functions on their recipes. The will not be able to perform these functions other chefs recipe. 
+I have designed a Recipe Blog using the following technologies;
+•	HTML
+•	CSS
+•	AJAX
+•	SQL
+The application is designed for user to access and view recipe of choice and read about the recipes description. The application has 3 types of users; the general user who visit just to view the recipe information. The second users are the chef who have authorization to Create, Read, Update and Delete recipe. The can perform the CRUD functions on their recipes but not on recipes created by other chefs. The last user is the Admin who is a super user. The admin has all the functions of the chef and more. The Admin can create chefs, users and other admins. 
+The application can be divided into three parts; The front end, backend and the database management. The front end was built with combination of HTML, CSS and Ajax. I have used HTML for the content of the site while the CSS is used to design the look and feel of the application. Ajax is used for connecting the CRUD APIs with the front end. The backend is an admin dashboard built on a Rocketman Admin Dashboard Template  (rocketman-html.vercel.app). The database runs on MySql engine. 
 
 
 A list of planned functionalities. 
