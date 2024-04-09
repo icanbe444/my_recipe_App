@@ -1,9 +1,9 @@
 Part 1: Specification of your web application: (2 grades) (~300 words) Create a short report containing a brief on the following: 
-1.	Description of your application. 
+Description of your application. 
 I need to build a recipe blog with two types of users. The first users type will be the Chef (Recipe makers) and they will have an admin access. The chefs can perform CRUD functions on their recipes. The will not be able to perform these functions other chefs recipe. 
 
 
-2. A list of planned functionalities. 
+A list of planned functionalities. 
 1.	Signup 
 2.	Profile Page
 3.	Login
@@ -19,7 +19,7 @@ I need to build a recipe blog with two types of users. The first users type will
 13.	Upload Images
 14.	Search Recipe
 
-3. A site map. 
+A sitemap  
 The site map shows a clear picture of the different sections of my recipe blog. This will allow users, both Chefs and Users to seamlessly navigate the different pages to perform all the functions available on the platform. 
 Below is the representation of my sitemap:
 1.	Home
