@@ -5,12 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home - <?php echo BLOG_NAME?></title>
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="dist/css/vendors/litepicker.css">
-    <link rel="stylesheet" href="dist/css/vendors/tippy.css">
-    <link rel="stylesheet" href="dist/css/vendors/simplebar.css">
-    <link rel="stylesheet" href="dist/css/themes/waveform.css">
-    <link rel="stylesheet" href="dist/css/app.css"> <!-- END: CSS Assets-->
+<?php require_once("inc/style.php");?>
 </head>
 <!-- END: Head -->
 <body>
@@ -22,7 +17,7 @@
                         <i data-tw-merge="" data-lucide="x" class="stroke-[1] w-8 h-8 text-white"></i>
                     </a>
                 </div>
-<?php require_once("menu.php");?>
+<?php require_once("inc/menu.php");?>
                 <div class="top-bar group fixed inset-x-0 top-0 h-[65px] transition-[margin] duration-300 ease-in-out xl:ml-[275px] group-[.side-menu--collapsed]:xl:ml-[90px] [&.top-bar--active]:mt-3.5">
                     <div class="absolute inset-x-0 h-full xl:mr-5 transition-[padding] duration-300 ease-in-out group-[.top-bar--active]:px-5 before:content-[''] before:mx-5 before:xl:mx-5 before:absolute before:top-0 before:inset-x-0 before:-mt-[15px] before:h-[20px] before:backdrop-blur">
                         <div class="box group-[.top-bar--active]:box flex h-full w-full items-center border-transparent bg-transparent px-5 shadow-none transition-[padding,background-color,border-color] duration-300 ease-in-out group-[.top-bar--active]:border-transparent group-[.top-bar--active]:bg-theme-2/80 group-[.top-bar--active]:backdrop-blur">
@@ -30,124 +25,11 @@
                                 <a class="p-2 text-white rounded-full open-mobile-menu hover:bg-white/5" href="">
                                     <i data-tw-merge="" data-lucide="align-justify" class="stroke-[1] h-[18px] w-[18px]"></i>
                                 </a>
-                                <a class="p-2 text-white rounded-full hover:bg-white/5" data-tw-toggle="modal" data-tw-target="#quick-search" href="javascript:;">
-                                    <i data-tw-merge="" data-lucide="search" class="stroke-[1] h-[18px] w-[18px]"></i>
-                                </a>
+
                             </div>
                             <!-- BEGIN: Search -->
 
-                            <div id="quick-search" aria-hidden="true" tabindex="-1" class="modal group bg-gradient-to-b from-theme-1/50 via-theme-2/50 to-black/50 transition-[visibility,opacity] w-screen h-screen fixed left-0 top-0 overflow-y-hidden z-[60] [&:not(.show)]:duration-[0s,0.2s] [&:not(.show)]:delay-[0.2s,0s] [&:not(.show)]:invisible [&:not(.show)]:opacity-0 [&.show]:visible [&.show]:opacity-100 [&.show]:duration-[0s,0.1s]">
-                                <div class="box mx-auto my-2 w-[95%] scale-95 transition-transform group-[.show]:scale-100 sm:mt-40 sm:w-[600px] lg:w-[700px]">
-                                    <div class="relative border-b border-slate-200/60">
-                                        <i class="absolute inset-y-0 my-auto ml-4 h-5 w-5 text-slate-500" data-lucide="search"></i>
-                                        <input data-tw-merge="" type="text" placeholder="Quick Search..." class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&[readonly]]:bg-slate-100 [&[readonly]]:cursor-not-allowed [&[readonly]]:dark:bg-darkmode-800/50 [&[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 rounded-md placeholder:text-slate-400/90 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10 border-0 px-12 py-5 shadow-none focus:ring-0">
-                                        <div class="absolute inset-y-0 right-0 my-auto mr-4 flex h-6 items-center rounded-md bg-slate-200 px-2 text-xs text-slate-500">
-                                            ESC</div>
-                                    </div>
-                                    <div class="p-5">
-                                        <div class="mb-3 font-medium">Applications</div>
-                                        <div class="mb-5">
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="flex h-7 w-7 items-center justify-center rounded-full bg-success/20 text-success dark:bg-success/10">
-                                                    <i class="h-3.5 w-3.5" data-lucide="inbox"></i>
-                                                </div>
-                                                <div class="ml-3 truncate">Compose New Mail</div>
-                                                <div class="ml-auto flex w-48 items-center justify-end truncate text-xs text-slate-500">
-                                                    <i class="mr-2 h-3.5 w-3.5" data-lucide="link"></i> Quick Access
-                                                </div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="flex h-7 w-7 items-center justify-center rounded-full bg-pending/10 text-pending">
-                                                    <i class="h-3.5 w-3.5" data-lucide="users"></i>
-                                                </div>
-                                                <div class="ml-3 truncate">Contacts</div>
-                                                <div class="ml-auto flex w-48 items-center justify-end truncate text-xs text-slate-500">
-                                                    <i class="mr-2 h-3.5 w-3.5" data-lucide="link"></i> Quick Access
-                                                </div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary/80 dark:bg-primary/20">
-                                                    <i class="h-3.5 w-3.5" data-lucide="credit-card"></i>
-                                                </div>
-                                                <div class="ml-3 truncate">Product Reports</div>
-                                                <div class="ml-auto flex w-48 items-center justify-end truncate text-xs text-slate-500">
-                                                    <i class="mr-2 h-3.5 w-3.5" data-lucide="link"></i> Quick Access
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="mb-3 font-medium">Contacts</div>
-                                        <div class="mb-5">
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/profile-1.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Leonardo DiCaprio</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    leonardodicaprio@left4code.com</div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/profile-5.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Morgan Freeman</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    morganfreeman@left4code.com</div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/profile-9.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Brad Pitt</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    bradpitt@left4code.com</div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/profile-9.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Sylvester Stallone</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    sylvesterstallone@left4code.com</div>
-                                            </a>
-                                        </div>
-                                        <div class="mb-3 font-medium">Products</div>
-                                        <div>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/preview-12.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Nike Air Max 270</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    Sport & Outdoor</div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/preview-3.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Oppo Find X2 Pro</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    Smartphone & Tablet</div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/preview-5.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Oppo Find X2 Pro</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    Smartphone & Tablet</div>
-                                            </a>
-                                            <a class="mt-3 flex items-center first:mt-0" href="">
-                                                <div class="image-fit h-7 w-7">
-                                                    <img class="rounded-full" src="dist/images/fakers/preview-2.jpg" alt="Rocketman - Admin Dashboard Template">
-                                                </div>
-                                                <div class="ml-3 w-36 truncate">Apple MacBook Pro 13</div>
-                                                <div class="ml-auto w-36 truncate text-right text-xs text-slate-500">
-                                                    PC & Laptop</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                             <!-- END: Search -->
                             <!-- BEGIN: Notification & User Menu -->
                             <div class="flex items-center flex-1">
@@ -189,6 +71,7 @@
                                     </div>
                                     <div class="intro-y mt-12 sm:mt-4">
                                         <div class="box box--stacked grid grid-cols-12 gap-0 divide-x divide-y divide-dashed divide-slate-200 py-0 dark:divide-white/5 xl:divide-y-0 xl:py-5">
+                                          <?php if ($role === "admin") {?>
                                             <div class="relative col-span-12 px-5 py-5 sm:col-span-6 xl:col-span-3 xl:py-0 [&:not(:last-child)]:xl:before:content-[''] [&:not(:last-child)]:xl:before:w-[13px] [&:not(:last-child)]:xl:before:h-[12px] [&:not(:last-child)]:xl:before:absolute [&:not(:last-child)]:xl:before:rounded-full [&:not(:last-child)]:xl:before:bg-slate-200 [&:not(:last-child)]:xl:before:top-0 [&:not(:last-child)]:xl:before:right-0 [&:not(:last-child)]:xl:before:-mr-[7px] [&:not(:last-child)]:xl:before:-mt-[25px] [&:not(:last-child)]:xl:before:dark:bg-darkmode-500 [&:not(:last-child)]:xl:after:content-[''] [&:not(:last-child)]:xl:after:w-[11px] [&:not(:last-child)]:xl:after:h-[14px] [&:not(:last-child)]:xl:after:absolute [&:not(:last-child)]:xl:after:rounded-full [&:not(:last-child)]:xl:after:bg-slate-100 [&:not(:last-child)]:xl:after:top-0 [&:not(:last-child)]:xl:after:right-0 [&:not(:last-child)]:xl:after:-mr-[6px] [&:not(:last-child)]:xl:after:-mt-[28px] [&:not(:last-child)]:xl:after:dark:bg-darkmode-700 [&:not(:last-child)&gt;div]:xl:before:content-[''] [&:not(:last-child)&gt;div]:xl:before:w-[13px] [&:not(:last-child)&gt;div]:xl:before:h-[12px] [&:not(:last-child)&gt;div]:xl:before:absolute [&:not(:last-child)&gt;div]:xl:before:rounded-full [&:not(:last-child)&gt;div]:xl:before:bg-slate-200 [&:not(:last-child)&gt;div]:xl:before:bottom-0 [&:not(:last-child)&gt;div]:xl:before:right-0 [&:not(:last-child)&gt;div]:xl:before:-mr-[7px] [&:not(:last-child)&gt;div]:xl:before:-mb-[25px] [&:not(:last-child)&gt;div]:xl:before:dark:bg-darkmode-700/60 [&:not(:last-child)&gt;div]:xl:after:content-[''] [&:not(:last-child)&gt;div]:xl:after:w-[11px] [&:not(:last-child)&gt;div]:xl:after:h-[14px] [&:not(:last-child)&gt;div]:xl:after:absolute [&:not(:last-child)&gt;div]:xl:after:rounded-full [&:not(:last-child)&gt;div]:xl:after:bg-slate-50 [&:not(:last-child)&gt;div]:xl:after:bottom-0 [&:not(:last-child)&gt;div]:xl:after:right-0 [&:not(:last-child)&gt;div]:xl:after:-mr-[6px] [&:not(:last-child)&gt;div]:xl:after:-mb-[28px] [&:not(:last-child)&gt;div]:xl:after:dark:bg-darkmode-600">
                                                 <div>
                                                     <div class="flex">
@@ -241,19 +124,28 @@ echo count($rResult);
                                                     <div class="mt-1 text-slate-500">Total Users</div>
                                                 </div>
                                             </div>
-                                            <div class="relative col-span-12 px-5 py-5 sm:col-span-6 xl:col-span-3 xl:py-0 [&:not(:last-child)]:xl:before:content-[''] [&:not(:last-child)]:xl:before:w-[13px] [&:not(:last-child)]:xl:before:h-[12px] [&:not(:last-child)]:xl:before:absolute [&:not(:last-child)]:xl:before:rounded-full [&:not(:last-child)]:xl:before:bg-slate-200 [&:not(:last-child)]:xl:before:top-0 [&:not(:last-child)]:xl:before:right-0 [&:not(:last-child)]:xl:before:-mr-[7px] [&:not(:last-child)]:xl:before:-mt-[25px] [&:not(:last-child)]:xl:before:dark:bg-darkmode-500 [&:not(:last-child)]:xl:after:content-[''] [&:not(:last-child)]:xl:after:w-[11px] [&:not(:last-child)]:xl:after:h-[14px] [&:not(:last-child)]:xl:after:absolute [&:not(:last-child)]:xl:after:rounded-full [&:not(:last-child)]:xl:after:bg-slate-100 [&:not(:last-child)]:xl:after:top-0 [&:not(:last-child)]:xl:after:right-0 [&:not(:last-child)]:xl:after:-mr-[6px] [&:not(:last-child)]:xl:after:-mt-[28px] [&:not(:last-child)]:xl:after:dark:bg-darkmode-700 [&:not(:last-child)&gt;div]:xl:before:content-[''] [&:not(:last-child)&gt;div]:xl:before:w-[13px] [&:not(:last-child)&gt;div]:xl:before:h-[12px] [&:not(:last-child)&gt;div]:xl:before:absolute [&:not(:last-child)&gt;div]:xl:before:rounded-full [&:not(:last-child)&gt;div]:xl:before:bg-slate-200 [&:not(:last-child)&gt;div]:xl:before:bottom-0 [&:not(:last-child)&gt;div]:xl:before:right-0 [&:not(:last-child)&gt;div]:xl:before:-mr-[7px] [&:not(:last-child)&gt;div]:xl:before:-mb-[25px] [&:not(:last-child)&gt;div]:xl:before:dark:bg-darkmode-700/60 [&:not(:last-child)&gt;div]:xl:after:content-[''] [&:not(:last-child)&gt;div]:xl:after:w-[11px] [&:not(:last-child)&gt;div]:xl:after:h-[14px] [&:not(:last-child)&gt;div]:xl:after:absolute [&:not(:last-child)&gt;div]:xl:after:rounded-full [&:not(:last-child)&gt;div]:xl:after:bg-slate-50 [&:not(:last-child)&gt;div]:xl:after:bottom-0 [&:not(:last-child)&gt;div]:xl:after:right-0 [&:not(:last-child)&gt;div]:xl:after:-mr-[6px] [&:not(:last-child)&gt;div]:xl:after:-mb-[28px] [&:not(:last-child)&gt;div]:xl:after:dark:bg-darkmode-600">
+                                        <?php } elseif ($role === "chef") {?>
+  <div class="relative col-span-12 px-5 py-5 sm:col-span-6 sm:!border-t-0 xl:col-span-3 xl:py-0 [&:not(:last-child)]:xl:before:content-[''] [&:not(:last-child)]:xl:before:w-[13px] [&:not(:last-child)]:xl:before:h-[12px] [&:not(:last-child)]:xl:before:absolute [&:not(:last-child)]:xl:before:rounded-full [&:not(:last-child)]:xl:before:bg-slate-200 [&:not(:last-child)]:xl:before:top-0 [&:not(:last-child)]:xl:before:right-0 [&:not(:last-child)]:xl:before:-mr-[7px] [&:not(:last-child)]:xl:before:-mt-[25px] [&:not(:last-child)]:xl:before:dark:bg-darkmode-500 [&:not(:last-child)]:xl:after:content-[''] [&:not(:last-child)]:xl:after:w-[11px] [&:not(:last-child)]:xl:after:h-[14px] [&:not(:last-child)]:xl:after:absolute [&:not(:last-child)]:xl:after:rounded-full [&:not(:last-child)]:xl:after:bg-slate-100 [&:not(:last-child)]:xl:after:top-0 [&:not(:last-child)]:xl:after:right-0 [&:not(:last-child)]:xl:after:-mr-[6px] [&:not(:last-child)]:xl:after:-mt-[28px] [&:not(:last-child)]:xl:after:dark:bg-darkmode-700 [&:not(:last-child)&gt;div]:xl:before:content-[''] [&:not(:last-child)&gt;div]:xl:before:w-[13px] [&:not(:last-child)&gt;div]:xl:before:h-[12px] [&:not(:last-child)&gt;div]:xl:before:absolute [&:not(:last-child)&gt;div]:xl:before:rounded-full [&:not(:last-child)&gt;div]:xl:before:bg-slate-200 [&:not(:last-child)&gt;div]:xl:before:bottom-0 [&:not(:last-child)&gt;div]:xl:before:right-0 [&:not(:last-child)&gt;div]:xl:before:-mr-[7px] [&:not(:last-child)&gt;div]:xl:before:-mb-[25px] [&:not(:last-child)&gt;div]:xl:before:dark:bg-darkmode-700/60 [&:not(:last-child)&gt;div]:xl:after:content-[''] [&:not(:last-child)&gt;div]:xl:after:w-[11px] [&:not(:last-child)&gt;div]:xl:after:h-[14px] [&:not(:last-child)&gt;div]:xl:after:absolute [&:not(:last-child)&gt;div]:xl:after:rounded-full [&:not(:last-child)&gt;div]:xl:after:bg-slate-50 [&:not(:last-child)&gt;div]:xl:after:bottom-0 [&:not(:last-child)&gt;div]:xl:after:right-0 [&:not(:last-child)&gt;div]:xl:after:-mr-[6px] [&:not(:last-child)&gt;div]:xl:after:-mb-[28px] [&:not(:last-child)&gt;div]:xl:after:dark:bg-darkmode-600">
                                                 <div>
                                                     <div class="flex">
-                                                        <div class="flex h-[2.2rem] w-[2.2rem] items-center justify-center rounded-full border border-success/20 bg-success/20 text-success">
-                                                            <i data-tw-merge="" data-lucide="hard-drive" class="stroke-[1] w-5 h-5"></i>
+                                                        <div class="flex h-[2.2rem] w-[2.2rem] items-center justify-center rounded-full border border-pending/20 bg-pending/20 text-pending">
+                                                            <i data-tw-merge="" data-lucide="drumstick" class="stroke-[1] w-5 h-5"></i>
                                                         </div>
                                                         <div class="ml-auto">
-                                                       </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="mt-6 text-2xl font-medium leading-7">2.034</div>
-                                                    <div class="mt-1 text-slate-500">New Stores</div>
+                                                    <div class="mt-6 text-2xl font-medium leading-7"><?php 
+
+$sQuery = "SELECT * FROM recipes WHERE owner='$adminID'"; 
+$rResult = $db_con->query($sQuery)->fetchAll(); 
+echo count($rResult); 
+?></div>
+                                                    <div class="mt-1 text-slate-500">Total Recipies</div>
                                                 </div>
                                             </div>
+                                            
+                                            
+                                        <?php } ?>
                                         </div>
                                     </div>
                                 </div>

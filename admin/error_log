@@ -221,3 +221,66 @@ Stack trace:
   thrown in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php on line 27
 [25-Mar-2024 21:17:34 UTC] PHP Notice:  Undefined index: admin_session in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 8
 [25-Mar-2024 21:17:34 UTC] PHP Notice:  Undefined index: admin_session in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 11
+[26-Mar-2024 22:29:06 UTC] PHP Notice:  Undefined index: admin_session in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 8
+[26-Mar-2024 22:29:06 UTC] PHP Notice:  Undefined index: admin_session in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 11
+[26-Mar-2024 22:31:04 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's Place','chefdammy@gmail.com','password123','2024-03-26 22:31:04')' at line 1 in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php:27
+Stack trace:
+#0 /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php(27): PDO->exec('insert into che...')
+#1 {main}
+  thrown in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php on line 27
+[31-Mar-2024 22:00:54 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:01:07 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:01:10 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:02:29 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:03:02 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:03:04 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:05:25 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:05:25 UTC] PHP Notice:  Undefined index: user_id in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/recipe.php on line 205
+[31-Mar-2024 22:05:25 UTC] PHP Notice:  Undefined index: store_name in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/recipe.php on line 207
+[31-Mar-2024 22:06:06 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:06:06 UTC] PHP Notice:  Undefined index: user_id in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/recipe.php on line 203
+[31-Mar-2024 22:06:24 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:06:33 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:06:42 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:06:45 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:06:49 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:08:02 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:08:05 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:08:14 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:09:40 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:10:09 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:13:47 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:14:18 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:14:36 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:15:19 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:20:17 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:21:09 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:21:14 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:22:28 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:22:38 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:22:53 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:24:23 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:24:26 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:24:49 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:24:57 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:25:00 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:25:07 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:25:42 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:26:34 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:26:38 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:27:12 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:27:47 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:27:57 UTC] PHP Notice:  Undefined index: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/check-login.php on line 21
+[31-Mar-2024 22:29:20 UTC] PHP Notice:  Undefined variable: username in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/profile.php on line 66
+[31-Mar-2024 23:19:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 't forget to check now and then otherwise your egusi soup will burn.','../images/' at line 1 in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-recipe.php:35
+Stack trace:
+#0 /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-recipe.php(35): PDO->exec('insert into rec...')
+#1 {main}
+  thrown in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-recipe.php on line 35
+[31-Mar-2024 23:38:17 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php:27
+Stack trace:
+#0 /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php(27): PDO->exec('insert into che...')
+#1 {main}
+  thrown in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/add-chef.php on line 27
+[01-Apr-2024 00:54:45 UTC] PHP Warning:  require_once(menu.php): failed to open stream: No such file or directory in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/recipe.php on line 25
+[01-Apr-2024 00:54:45 UTC] PHP Fatal error:  require_once(): Failed opening required 'menu.php' (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/tpaiseve/public_html/recipe.tpais-events.com/admin/recipe.php on line 25

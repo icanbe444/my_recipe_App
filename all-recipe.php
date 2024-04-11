@@ -21,7 +21,7 @@
                 success: function(response) {
                     // Process the products
                     if (response.length > 0) {
-                        var productList = $('#product-list');
+                        var productList = $('#recipe-list');
 
                         // Iterate over each product
                         $.each(response, function(index, product) {
@@ -44,7 +44,7 @@
                             productList.append(recipeBox);
                         });
                     } else {
-                        $('#product-list').html('<p>No products found</p>');
+                        $('#recipe-list').html('<p>No products found</p>');
                     }
                 },
                 error: function() {
@@ -95,7 +95,7 @@
 		<!-- Isotope -->
 		<div class="isotope">
 
-<div id="product-list"></div>
+<div id="recipe-list"></div>
 
 		</div>
 		<div class="clearfix"></div>
@@ -109,76 +109,7 @@
 <!-- Wrapper / End -->
 
 
-
-<!-- Footer Bottom / Start -->
-<div id="footer-bottom">
-
-	<!-- Container -->
-	<div class="container">
-
-		<div class="eight columns">© Copyright <?php echo date("Y");?> by <a href="#"><?php echo BLOG_NAME?></a>. All Rights Reserved.</div>
-
-	</div>
-	<!-- Container / End -->
-
-</div>
-<!-- Footer Bottom / End -->
-
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
-
-
-
-<!-- Java Script
-================================================== -->
-<script src="scripts/jquery-1.11.0.min.js"></script>
-<script src="scripts/jquery-migrate-1.2.1.min.js"></script>
-<script src="scripts/jquery.superfish.js"></script>
-<script src="scripts/jquery.royalslider.min.js"></script>
-<script src="scripts/responsive-nav.js"></script>
-<script src="scripts/hoverIntent.js"></script>
-<script src="scripts/isotope.pkgd.min.js"></script>
-<script src="scripts/chosen.jquery.min.js"></script>
-<script src="scripts/jquery.tooltips.min.js"></script>
-<script src="scripts/jquery.magnific-popup.min.js"></script>
-<script src="scripts/jquery.pricefilter.js"></script>
-<script src="scripts/custom.js"></script>
-
-
-<!-- Style Switcher
-================================================== -->
-<script src="scripts/switcher.js"></script>
-
-<div id="style-switcher">
-	<h2>Style Switcher <a href="#"></a></h2>
-	
-	<div>
-		<h3>Predefined Colors</h3>
-		<ul class="colors" id="color1">
-			<li><a href="#" class="green" title="Green"></a></li>
-			<li><a href="#" class="blue" title="Blue"></a></li>
-			<li><a href="#" class="orange" title="Orange"></a></li>
-			<li><a href="#" class="navy" title="Navy"></a></li>
-			<li><a href="#" class="yellow" title="Yellow"></a></li>
-			<li><a href="#" class="peach" title="Peach"></a></li>
-			<li><a href="#" class="beige" title="Beige"></a></li>
-			<li><a href="#" class="purple" title="Purple"></a></li>
-			<li><a href="#" class="celadon" title="Celadon"></a></li>
-			<li><a href="#" class="pink" title="Pink"></a></li>
-			<li><a href="#" class="red" title="Red"></a></li>
-			<li><a href="#" class="brown" title="Brown"></a></li>
-			<li><a href="#" class="cherry" title="Cherry"></a></li>
-			<li><a href="#" class="cyan" title="Cyan"></a></li>
-			<li><a href="#" class="gray" title="Gray"></a></li>
-			<li><a href="#" class="darkcol" title="Dark"></a></li>
-		</ul>
-		
-	</div>
-	
-	<div id="reset"><a href="#" class="button color">Reset</a></div>
-		
-</div>
-
+<?php require_once("inc/footer.php");?>
 
 </body>
 </html>

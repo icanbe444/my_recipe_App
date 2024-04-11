@@ -1,9 +1,10 @@
+<!-- Footer Bottom / Start -->
 <div id="footer-bottom">
 
 	<!-- Container -->
 	<div class="container">
 
-		<div class="eight columns">© Copyright <?php echo date("Y");?> by <a href="#">Dulla</a>. All Rights Reserved.</div>
+		<div class="eight columns">© Copyright <?php echo date("Y");?> by <a href="#"><?php echo BLOG_NAME?></a>. All Rights Reserved.</div>
 
 	</div>
 	<!-- Container / End -->
@@ -30,4 +31,5 @@
 <script src="scripts/jquery.magnific-popup.min.js"></script>
 <script src="scripts/jquery.pricefilter.js"></script>
 <script src="scripts/custom.js"></script>
+
 

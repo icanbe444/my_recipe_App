@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         var searchTerm = $('#searchTerm').val(); // Get the search term
 
-        // Perform Ajax request to search recipe.php
+        // Perform Ajax request to searchProducts.php
         $.ajax({
             url: 'api/index.php?action=search_recipe',
             type: 'POST',
@@ -26,8 +26,8 @@ $(document).ready(function() {
                 if (response.length > 0) {
                     var html = '';
                     for (var i = 0; i < response.length; i++) {
-                        var productId = response[i].r_id; // Get the recipe ID
-                        var productUrl = 'view_recipe.php?id=' + productId; // Create the recipe URL
+                        var productId = response[i].r_id; // Get the product ID
+                        var productUrl = 'view_recipe.php?id=' + productId; // Create the product URL
 
                         html += '<div class="product">' +
                             '<a href="' + productUrl + '">' +
@@ -40,7 +40,7 @@ $(document).ready(function() {
                     }
                     $('#searchResults').html(html);
                 } else {
-                    $('#searchResults').html('<p>No recipe found.</p>');
+                    $('#searchResults').html('<p>No products found.</p>');
                 }
             },
             error: function() {
@@ -105,40 +105,7 @@ $(document).ready(function() {
 </div>
 
 
-<div id="footer-bottom">
 
-	<!-- Container -->
-	<div class="container">
-
-		<div class="eight columns">© Copyright <?php echo date("Y");?> by <a href="#"><?php echo BLOG_NAME?></a>. All Rights Reserved.</div>
-
-	</div>
-	<!-- Container / End -->
-
-</div>
-<!-- Footer Bottom / End -->
-
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
-
-
-
-<!-- Java Script
-================================================== -->
-<script src="scripts/jquery-1.11.0.min.js"></script>
-<script src="scripts/jquery-migrate-1.2.1.min.js"></script>
-<script src="scripts/jquery.superfish.js"></script>
-<script src="scripts/jquery.royalslider.min.js"></script>
-<script src="scripts/responsive-nav.js"></script>
-<script src="scripts/hoverIntent.js"></script>
-<script src="scripts/isotope.pkgd.min.js"></script>
-<script src="scripts/chosen.jquery.min.js"></script>
-<script src="scripts/jquery.tooltips.min.js"></script>
-<script src="scripts/jquery.magnific-popup.min.js"></script>
-<script src="scripts/jquery.pricefilter.js"></script>
-<script src="scripts/custom.js"></script>
-
-
-
+<?php require_once("inc/footer.php");?>
 </body>
 </html>

@@ -78,6 +78,10 @@
                  <label for="email">Password:</label>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
          </div>
+         <div class="form-group">
+                 <label for="email">Confirm Password:</label>
+        <input type="password" name="password2" class="form-control" placeholder="Password" required>
+         </div>
          
          <div class="form-group" style="margin:30px;">
         <input type="submit" class="form-control" value="Create Account">

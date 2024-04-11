@@ -5,19 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Profile - Admin</title>
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="dist/css/vendors/simplebar.css">
-    <link rel="stylesheet" href="dist/css/themes/waveform.css">
-    <link rel="stylesheet" href="dist/css/app.css"> <!-- END: CSS Assets-->
+<?php require_once("inc/style.php");?>
 </head>
 <!-- END: Head -->
 <body>
 <?php
 if(isset($_POST['update'])){
 	    $fullname = $_POST['fullname'];
-	    $username = $_POST['username'];
+	    $storename = $_POST['storename'];
 	    $email = $_POST['email'];
-$db_con->exec("update admin set fullname='$fullname',username='$username',email='$email' where id='$adminID'");
+$db_con->exec("update chefs set fullname='$fullname',store_name='$storename',email='$email' where user_id='$adminID'");
      echo "<script>
 alert('Profile Updated');
 window.location.href='profile.php';
@@ -31,7 +28,7 @@ window.location.href='profile.php';
                         <i data-tw-merge="" data-lucide="x" class="stroke-[1] w-8 h-8 text-white"></i>
                     </a>
                 </div>
-          <?php require_once("menu.php");?></div>
+          <?php require_once("inc/menu.php");?></div>
             <div class="content relative transition-[margin,width] duration-100 pl-5 xl:pl-0 pr-5 pt-[66px] pb-5 content--compact xl:ml-[275px] [&.content--compact]:xl:ml-[91px]">
                 <div class="relative z-10 mt-[35px] rounded-3xl bg-slate-100 px-5 pt-px pb-5 min-h-screen before:content-[''] before:rounded-3xl before:bg-slate-100/30 before:inset-x-0 before:h-20 before:top-0 before:absolute before:z-[-1] before:-mt-3.5 before:mx-5 after:content-[''] after:rounded-3xl after:bg-slate-100/20 after:inset-x-0 after:h-20 after:top-0 after:absolute after:z-[-2] after:-mt-7 after:mx-12">
                     <div class="intro-y mt-8 flex flex-col items-center sm:flex-row">
@@ -63,7 +60,7 @@ window.location.href='profile.php';
                                         </div>
                                         <div class="col-span-2 flex items-center justify-center md:col-span-1 2xl:justify-start">
                                             <i data-tw-merge="" data-lucide="instagram" class="stroke-[1] mr-2 h-4 w-4"></i>
-                                            @ <?php echo $username?>
+                                            @ <?php echo $storename?>
                                         </div>
                                     </div>
                                 </div>
@@ -87,8 +84,8 @@ window.location.href='profile.php';
 
    <div style="margin-top:10px;">
 <label data-tw-merge for="regular-form-1" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">
-    Username</label>
-<input data-tw-merge id="regular-form-1" name="username" type="text" value="<?php echo $username?>" class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&amp;[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&amp;:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10" required>
+    Store Name</label>
+<input data-tw-merge id="regular-form-1" name="storename" type="text" value="<?php echo $storename?>" class="disabled:bg-slate-100 disabled:cursor-not-allowed dark:disabled:bg-darkmode-800/50 dark:disabled:border-transparent [&amp;[readonly]]:bg-slate-100 [&amp;[readonly]]:cursor-not-allowed [&amp;[readonly]]:dark:bg-darkmode-800/50 [&amp;[readonly]]:dark:border-transparent transition duration-200 ease-in-out w-full text-sm border-slate-200 shadow-sm rounded-md placeholder:text-slate-400/90 focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus:border-primary focus:border-opacity-40 dark:bg-darkmode-800 dark:border-transparent dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:placeholder:text-slate-500/80 [&amp;[type='file']]:border file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:border-r-[1px] file:border-slate-100/10 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-500/70 hover:file:bg-200 group-[.form-inline]:flex-1 group-[.input-group]:rounded-none group-[.input-group]:[&amp;:not(:first-child)]:border-l-transparent group-[.input-group]:first:rounded-l group-[.input-group]:last:rounded-r group-[.input-group]:z-10" required>
                             </div>
 <div style="margin-top:10px;">
 <label data-tw-merge for="regular-form-1" class="inline-block mb-2 group-[.form-inline]:mb-2 group-[.form-inline]:sm:mb-0 group-[.form-inline]:sm:mr-5 group-[.form-inline]:sm:text-right">

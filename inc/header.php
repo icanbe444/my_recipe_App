@@ -20,6 +20,7 @@
 			<li><a href="index.php">Home</a></li>
 
 	<li><a href="all-recipe.php">All Recipe</a></li>
+		<li><a href="top-recipes.php">Top Recipe</a></li>
 
 <?php if (isset($_SESSION['user_id'])) {?>
 

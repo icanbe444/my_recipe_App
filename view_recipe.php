@@ -16,22 +16,43 @@
   <?php  $repid = $_GET['id'];?>
 
     <script>
-        $(document).ready(function() {
-            var productId = <?php echo $repid?>; // Replace with the actual recipe ID
+var productId = <?php echo $repid?>;
+$(document).on('click', '.like-btn', function() {
+    var recipeId = $(this).data('recipe-id');
+    var likesCount = $(this).siblings('.likes-count');
 
-            // Fetch recipe details using AJAX
+    // Send AJAX request to update the likes count
+    $.ajax({
+        type: 'POST',
+        url: 'api/index.php?action=like_recipe',
+        dataType: 'json',
+        data: { id: productId },
+       success: function(response) {
+            alert("You have liked this post.");
+            likesCount.text(response.likes);
+            location.reload(); // Reload the page
+        },
+        error: function() {
+            console.log('Error liking recipe');
+        }
+    });
+});
+        $(document).ready(function() {
+            var productId = <?php echo $repid?>; // Replace with the actual product ID
+
+            // Fetch product details using AJAX
             $.ajax({
                 url: 'api/index.php',
                 method: 'GET',
                 dataType: 'json',
                 data: { action: 'get_recipe', id: productId },
                  success: function(response) {
-            // Process the recipe details
+            // Process the product details
             if (response !== null) {
-                var productDetails = $('#product-details');
+                var productDetails = $('#recipe-details');
                 var productHtml = '';
 
-                // Generate HTML markup for the recipe details
+                // Generate HTML markup for the product details
                 productHtml += '<section class="recipe-header">';
                 productHtml += '<div class="title-alignment">';
                 productHtml += '<h2>' + response.title + '</h2>';
@@ -39,7 +60,7 @@
                 productHtml += '<div class="star-rating"></div>';
                 productHtml += '<div class="star-bg"></div>';
                 productHtml += '</div>';
-                productHtml += '<span><a href="#reviews">(4 reviews)</a></span>';
+                productHtml += '<span class="likes-count" style="color:#040a5f;">' + response.likes + ' Likes ❤️</span> ';
                 productHtml += '</div>';
                 productHtml += '</section>';
 
@@ -50,11 +71,11 @@
                 productHtml += '</div>';
 
                 productHtml += '<p itemprop="description" style="margin-top:30px;">' + response.description + '</p>';
-
-                // Update the Recipe details container
+                productHtml += '<button class="like-btn" data-recipe-id="' + response.productId + '"><i class="fa fa-heart"></i> Like</button>';
+                // Update the product details container
                 productDetails.html(productHtml);
             } else {
-                productDetails.html('<p>Recipe not found</p>');
+                productDetails.html('<p>Product not found</p>');
             }
         },
         error: function() {
@@ -87,7 +108,7 @@
 	<div class="twelve columns">
 	<div class="alignment">
 
-<div id="product-details"></div>
+<div id="recipe-details"></div>
 
 
 		<div class="margin-top-15"></div>
@@ -135,44 +156,7 @@
 <!-- Wrapper / End -->
 
 
-<!-- Footer Bottom / Start -->
-<div id="footer-bottom">
 
-	<!-- Container -->
-	<div class="container">
-
-<div class="eight columns">© Copyright <?php echo date("Y");?> by <a href="#"><?php echo BLOG_NAME?></a>. All Rights Reserved.</div>
-
-	</div>
-	<!-- Container / End -->
-
-</div>
-<!-- Footer Bottom / End -->
-
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
-
-
-
-<!-- Java Script
-================================================== -->
-<script src="scripts/jquery-1.11.0.min.js"></script>
-<script src="scripts/jquery-migrate-1.2.1.min.js"></script>
-<script src="scripts/jquery.superfish.js"></script>
-<script src="scripts/jquery.royalslider.min.js"></script>
-<script src="scripts/responsive-nav.js"></script>
-<script src="scripts/hoverIntent.js"></script>
-<script src="scripts/isotope.pkgd.min.js"></script>
-<script src="scripts/chosen.jquery.min.js"></script>
-<script src="scripts/jquery.tooltips.min.js"></script>
-<script src="scripts/jquery.magnific-popup.min.js"></script>
-<script src="scripts/jquery.pricefilter.js"></script>
-<script src="scripts/custom.js"></script>
-
-
-<!-- Style Switcher
-================================================== -->
-<script src="scripts/switcher.js"></script>
-
+<?php require_once("inc/footer.php");?>
 </body>
 </html>

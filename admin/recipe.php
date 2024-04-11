@@ -5,12 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Recipe - <?php echo BLOG_NAME?></title>
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="dist/css/vendors/litepicker.css">
-    <link rel="stylesheet" href="dist/css/vendors/tippy.css">
-    <link rel="stylesheet" href="dist/css/vendors/simplebar.css">
-    <link rel="stylesheet" href="dist/css/themes/waveform.css">
-    <link rel="stylesheet" href="dist/css/app.css"> <!-- END: CSS Assets-->
+<?php require_once("inc/style.php");?>
 </head>
 <!-- END: Head -->
 <body>
@@ -22,7 +17,7 @@
                         <i data-tw-merge="" data-lucide="x" class="stroke-[1] w-8 h-8 text-white"></i>
                     </a>
                 </div>
-<?php require_once("menu.php");?>
+<?php require_once("inc/menu.php");?>
                 <div class="top-bar group fixed inset-x-0 top-0 h-[65px] transition-[margin] duration-300 ease-in-out xl:ml-[275px] group-[.side-menu--collapsed]:xl:ml-[90px] [&.top-bar--active]:mt-3.5">
                     <div class="absolute inset-x-0 h-full xl:mr-5 transition-[padding] duration-300 ease-in-out group-[.top-bar--active]:px-5 before:content-[''] before:mx-5 before:xl:mx-5 before:absolute before:top-0 before:inset-x-0 before:-mt-[15px] before:h-[20px] before:backdrop-blur">
                         <div class="box group-[.top-bar--active]:box flex h-full w-full items-center border-transparent bg-transparent px-5 shadow-none transition-[padding,background-color,border-color] duration-300 ease-in-out group-[.top-bar--active]:border-transparent group-[.top-bar--active]:bg-theme-2/80 group-[.top-bar--active]:backdrop-blur">
@@ -74,6 +69,8 @@
                 <div class="relative z-10 mt-[35px] rounded-3xl bg-slate-100 px-5 pt-px pb-5 min-h-screen before:content-[''] before:rounded-3xl before:bg-slate-100/30 before:inset-x-0 before:h-20 before:top-0 before:absolute before:z-[-1] before:-mt-3.5 before:mx-5 after:content-[''] after:rounded-3xl after:bg-slate-100/20 after:inset-x-0 after:h-20 after:top-0 after:absolute after:z-[-2] after:-mt-7 after:mx-12">
 <h4 style="margin:30px;font-size:20px;color:darkred">Recipes</h4>
                 <div class="overflow-x-auto">
+    <?php if ($role === "admin") {?>                
+                    
 <table data-tw-merge class="w-full text-left">
     <thead data-tw-merge class="">
  <tr data-tw-merge class="">
@@ -89,6 +86,7 @@
 <th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
     Image
 </th>
+<td>Likes</td>
 <th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
     Description
 </th>
@@ -113,6 +111,7 @@ $store_name = $row['store_name'];
 $title = $row['title'];
 $description = $row['description'];
 $image = $row['image'];
+$likes = $row['likes'];
 $added_date = $row['added_date'];
 ?>
 
@@ -145,6 +144,8 @@ $added_date = $row['added_date'];
 >
    <img src="<?php echo $image?>" style="width:100px;">
 </td>
+
+<td><?php echo $likes?></td>
                                             <td
     data-tw-merge
     class="px-5 py-3 border-b dark:border-darkmode-300 whitespace-nowrap"
@@ -163,6 +164,95 @@ $added_date = $row['added_date'];
      <?php } ?>                                 
 </tbody>
 </table>
+
+<?php }else{?>
+
+
+<table data-tw-merge class="w-full text-left">
+    <thead data-tw-merge class="">
+ <tr data-tw-merge class="">
+<th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
+    #
+</th>
+
+<th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
+    Title
+</th>
+<th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
+    Image
+</th>
+<td>Likes</td>
+<th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
+    Description
+</th>
+<th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
+    Added Date
+</th>
+<th data-tw-merge class="font-medium px-5 py-3 border-b-2 dark:border-darkmode-300 whitespace-nowrap">
+    Action
+</th>
+</tr>
+</thead>
+<tbody>
+    <?php
+$i = 1;
+$run=$db_con->prepare("select * from recipes WHERE owner='$adminID'");
+$run->execute();
+while ($row=$run->fetch())
+{
+$r_id = $row['r_id'];
+$title = $row['title'];
+$description = $row['description'];
+$image = $row['image'];
+$likes = $row['likes'];
+$added_date = $row['added_date'];
+?>
+
+
+    <tr
+    data-tw-merge
+    class=""
+>
+    <td
+    data-tw-merge
+    class="px-5 py-3 border-b dark:border-darkmode-300 whitespace-nowrap"
+>
+  <a href="view-recipe.php?id=<?php echo $r_id?>"> <?php echo $i; $i++;?></a>
+</td>
+                                            <td
+    data-tw-merge
+    class="px-5 py-3 border-b dark:border-darkmode-300 whitespace-nowrap"
+>
+    <a href="view-recipe.php?id=<?php echo $r_id?>"> <?php echo $title?>
+</td>
+                                            <td
+    data-tw-merge
+    class="px-5 py-3 border-b dark:border-darkmode-300 whitespace-nowrap"
+>
+   <img src="<?php echo $image?>" style="width:100px;">
+</td>
+             <td><?php echo $likes?></td>
+                                            <td
+    data-tw-merge
+    class="px-5 py-3 border-b dark:border-darkmode-300 whitespace-nowrap"
+>
+   <?php echo $description?>
+</td>
+                                            <td
+    data-tw-merge
+    class="px-5 py-3 border-b dark:border-darkmode-300 whitespace-nowrap"
+>
+    <?php echo $added_date?>
+</td>
+
+<td><td><a href="delete.php?id=<?php echo $r_id?>&type=recipe">Delete</a></td></td>
+</tr>
+     <?php } ?>                                 
+</tbody>
+</table>
+
+
+<?php } ?>
                             </div>
             
                 </div>

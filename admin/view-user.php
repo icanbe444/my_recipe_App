@@ -5,12 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>View User - <?php echo BLOG_NAME?></title>
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="dist/css/vendors/litepicker.css">
-    <link rel="stylesheet" href="dist/css/vendors/tippy.css">
-    <link rel="stylesheet" href="dist/css/vendors/simplebar.css">
-    <link rel="stylesheet" href="dist/css/themes/waveform.css">
-    <link rel="stylesheet" href="dist/css/app.css"> <!-- END: CSS Assets-->
+<?php require_once("inc/style.php");?>
 </head>
 <!-- END: Head -->
 <body>
@@ -22,7 +17,7 @@
                         <i data-tw-merge="" data-lucide="x" class="stroke-[1] w-8 h-8 text-white"></i>
                     </a>
                 </div>
-<?php require_once("menu.php");?>
+<?php require_once("inc/menu.php");?>
                 <div class="top-bar group fixed inset-x-0 top-0 h-[65px] transition-[margin] duration-300 ease-in-out xl:ml-[275px] group-[.side-menu--collapsed]:xl:ml-[90px] [&.top-bar--active]:mt-3.5">
                     <div class="absolute inset-x-0 h-full xl:mr-5 transition-[padding] duration-300 ease-in-out group-[.top-bar--active]:px-5 before:content-[''] before:mx-5 before:xl:mx-5 before:absolute before:top-0 before:inset-x-0 before:-mt-[15px] before:h-[20px] before:backdrop-blur">
                         <div class="box group-[.top-bar--active]:box flex h-full w-full items-center border-transparent bg-transparent px-5 shadow-none transition-[padding,background-color,border-color] duration-300 ease-in-out group-[.top-bar--active]:border-transparent group-[.top-bar--active]:bg-theme-2/80 group-[.top-bar--active]:backdrop-blur">

@@ -67,8 +67,15 @@ function createAccount()
     $store_name = $_POST['store_name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $password2 = $_POST['password2'];
     $role = 'chef';
     $reg_date = date("Y-m-d H:i:s");
+
+    // Check if passwords match
+    if ($password !== $password2) {
+        echo json_encode(['error' => 'Passwords do not match']);
+        return;
+    }
 
     // Encrypt the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
