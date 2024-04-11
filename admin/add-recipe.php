@@ -25,7 +25,7 @@
     
 	$newFilename=$fileinfo['filename'] ."_". time() . "." . $fileinfo['extension'];
 	move_uploaded_file($_FILES["image"]["tmp_name"],"../images/" . $newFilename);
-	$theimage="../images/" . $newFilename;
+	$theimage="http://localhost:8888/my_recipe_App/images/" . $newFilename;
 	    
 $db_con->exec("insert into recipes values('$id','$adminID','$title','$description','$theimage','0','$regdate','$regdate')");
     
