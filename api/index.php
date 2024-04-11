@@ -56,8 +56,6 @@ switch ($action) {
     default:
         echo json_encode(['error' => 'Invalid action']);
 }
-
-// Create a user account
 function createAccount()
 {
     global $mysqli;
@@ -80,18 +78,31 @@ function createAccount()
     // Encrypt the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Prepare the SQL statement
-    $stmt = $mysqli->prepare("INSERT INTO chefs (fullname,store_name,email,password,role,reg_date) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $fullname,$store_name,$email,$password,$role,$reg_date);
+    // Check if user already exists
+    $user_check_query = "SELECT * FROM chefs WHERE email = ?";
+    $stmt = $mysqli->prepare($user_check_query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $existingUser = $result->fetch_assoc();
+    $stmt->close();
 
-    // Execute the statement
+    if ($existingUser) {
+        echo json_encode(['error' => 'Email already exists']);
+        return;
+    }
+
+    // Insert new user into the database
+    $insert_query = "INSERT INTO chefs (fullname, store_name, email, password, role, reg_date) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $mysqli->prepare($insert_query);
+    $stmt->bind_param("ssssss", $fullname, $store_name, $email, $hashedPassword, $role, $reg_date);
+
     if ($stmt->execute()) {
         echo json_encode(['success' => 'Account created successfully']);
     } else {
         echo json_encode(['error' => 'Failed to create account']);
     }
 
-    // Close the statement
     $stmt->close();
 }
 
